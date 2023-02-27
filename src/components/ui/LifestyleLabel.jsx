@@ -1,7 +1,7 @@
 import { Tag, TagLeftIcon } from "@chakra-ui/react";
 import { FaLeaf } from "react-icons/fa";
 
-export const LifestyleLabel = () => {
+export const LifestyleLabel = (label) => {
   return (
     <Tag
       size="sm"
@@ -11,7 +11,7 @@ export const LifestyleLabel = () => {
       fontSize={10}
     >
       <TagLeftIcon as={FaLeaf} />
-      vegan
+      {label.label}
     </Tag>
   );
 };

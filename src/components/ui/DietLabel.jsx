@@ -1,6 +1,6 @@
 import { Tag } from "@chakra-ui/react";
 
-export const DietLabel = () => {
+export const DietLabel = (label) => {
   return (
     <Tag
       color={"blue.600"}
@@ -9,7 +9,7 @@ export const DietLabel = () => {
       textTransform="uppercase"
       fontSize={10}
     >
-      low-sodium
+      {label.label}
     </Tag>
   );
 };
