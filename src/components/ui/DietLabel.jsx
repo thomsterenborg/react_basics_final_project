@@ -1,6 +1,8 @@
 import { Tag } from "@chakra-ui/react";
 
-export const DietLabel = (label) => {
+//Generates a diet-tag for the parsed label
+
+export const DietLabel = ({ label }) => {
   return (
     <Tag
       color={"blue.600"}
@@ -9,7 +11,7 @@ export const DietLabel = (label) => {
       textTransform="uppercase"
       fontSize={10}
     >
-      {label.label}
+      {label}
     </Tag>
   );
 };

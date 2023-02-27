@@ -1,7 +1,9 @@
 import { WarningTwoIcon } from "@chakra-ui/icons";
 import { Tag, TagLeftIcon } from "@chakra-ui/react";
 
-export const CautionLabel = (label) => {
+//Generates a caution-tag for the parsed label
+
+export const CautionLabel = ({ label }) => {
   return (
     <Tag
       size="sm"
@@ -11,7 +13,7 @@ export const CautionLabel = (label) => {
       fontSize={10}
     >
       <TagLeftIcon as={WarningTwoIcon}></TagLeftIcon>
-      {label.label}
+      {label}
     </Tag>
   );
 };

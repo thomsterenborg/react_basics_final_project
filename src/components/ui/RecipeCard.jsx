@@ -18,19 +18,29 @@ export const RecipeCard = ({ recipe, onClick }) => {
       <Card
         direction="column"
         bg="white"
-        r
         w="300px"
         h="450px"
-        boxShadow="lg"
+        boxShadow="xl"
         borderRadius={15}
         overflow="hidden"
         align="center"
         mb={4}
-        mx={2}
-        _hover={{ transform: "scale(1.1)", boxShadow: "2xl" }}
+        mx={1}
+        _hover={{
+          transform: "scale(1.1)",
+          boxShadow: "2xl",
+          cursor: "pointer",
+        }}
         onClick={() => onClick(recipe)}
       >
-        <Image objectFit="cover" w="100%" h={40} src={recipe.image} />
+        <Image
+          objectFit="cover"
+          w="100%"
+          h={40}
+          src={recipe.image}
+          alt={`Image of ${recipe.label}`}
+        />
+
         <CardHeader align="center" pb={0}>
           <Text
             color="GrayText"
@@ -44,13 +54,25 @@ export const RecipeCard = ({ recipe, onClick }) => {
           <Heading as="h4" size="md">
             {recipe.label}
           </Heading>
-        </CardHeader>
-        <CardBody>
-          <Flex gap={1} align={"center"} direction="column">
-            <LifestyleLabels recipe={recipe} justify="center" flexWrap="wrap" />
 
+          <LifestyleLabels
+            recipe={recipe}
+            justify="center"
+            flexWrap="wrap"
+            mt={2}
+          />
+        </CardHeader>
+
+        <CardBody pt={2}>
+          <Flex gap={1} align={"center"} direction="column">
+            {/*Diet and Caution label are only generate if there are labels in the array*/}
             {recipe.dietLabels.length > 0 ? (
-              <DietLabels recipe={recipe} justify="center" flexWrap="wrap" />
+              <DietLabels
+                recipe={recipe}
+                justify="center"
+                flexWrap="wrap"
+                mb={2}
+              />
             ) : null}
 
             {recipe.cautions.length > 0 ? (

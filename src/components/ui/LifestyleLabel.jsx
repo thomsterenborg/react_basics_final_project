@@ -1,7 +1,10 @@
 import { Tag, TagLeftIcon } from "@chakra-ui/react";
 import { FaLeaf } from "react-icons/fa";
+// FaLeaf icon by FontAwesome: https://react-icons.github.io/react-icons/icons?name=fa
 
-export const LifestyleLabel = (label) => {
+//Generates a Lifestyle-tag for the parsed label
+
+export const LifestyleLabel = ({ label }) => {
   return (
     <Tag
       size="sm"
@@ -11,7 +14,7 @@ export const LifestyleLabel = (label) => {
       fontSize={10}
     >
       <TagLeftIcon as={FaLeaf} />
-      {label.label}
+      {label}
     </Tag>
   );
 };
