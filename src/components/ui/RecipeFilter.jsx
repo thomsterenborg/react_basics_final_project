@@ -1,5 +1,9 @@
 import { Radio, RadioGroup, Stack, Text } from "@chakra-ui/react";
 
+//Chakra UI Radio Button may cause "Unable to preventDefault inside passive event listener invocation."
+//error in the Chrome Dev Tools console. This is an issue in Chakra UI
+//The issue is closed but unsloved: https://github.com/chakra-ui/chakra-ui/issues/2925
+
 export const RecipeFilter = ({ value, onChange }) => {
   return (
     <RadioGroup
