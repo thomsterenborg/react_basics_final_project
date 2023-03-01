@@ -20,7 +20,7 @@ export const RecipeSearch = ({ onClick }) => {
     if (event.target.value !== "") {
       toast({
         title: "Recipes Filtered",
-        description: `Only showing recipes with the label ${event.target.value}`,
+        description: `Only showing recipes with the label ${event.target.value}. This will affect your search results`,
         status: "info",
         duration: 9000,
         isClosable: true,
