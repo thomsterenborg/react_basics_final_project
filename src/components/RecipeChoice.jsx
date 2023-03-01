@@ -1,7 +1,6 @@
 import { ArrowLeftIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Center,
   Flex,
   Heading,
   Icon,
