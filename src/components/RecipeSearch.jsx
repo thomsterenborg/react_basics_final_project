@@ -8,15 +8,25 @@ import { RecipeFilter } from "./ui/RecipeFilter";
 const availableRecipes = data.hits;
 
 export const RecipeSearch = ({ onClick }) => {
+  //useState for search field
   const [searchField, setSearchField] = useState("");
 
+  //event handler for search field
   const handleChange = (event) => {
     setSearchField(event.target.value);
   };
-  const toast = useToast();
+
+  //useStare for recipe Filter/Radio Buttons
   const [filterRecipe, setFilterRecipe] = useState("");
+
+  const toast = useToast();
+
+  //event handler for Radio buttons
   const handleRadioChange = (event) => {
+    //set the useState
     setFilterRecipe(event.target.value);
+
+    //Show toast
     if (event.target.value !== "") {
       toast({
         title: "Recipes Filtered",
@@ -38,6 +48,7 @@ export const RecipeSearch = ({ onClick }) => {
     }
   };
 
+  //Create array of recipes based on filter state
   const recipesForSearch = availableRecipes.filter((recipe) => {
     if (filterRecipe === "") return recipe;
 
@@ -54,6 +65,7 @@ export const RecipeSearch = ({ onClick }) => {
     }
   });
 
+  //Create an array with recipes bases on user input in search field
   const matchedRecipes = recipesForSearch.filter((recipe) => {
     return recipe.recipe.label
       .toLocaleLowerCase()
