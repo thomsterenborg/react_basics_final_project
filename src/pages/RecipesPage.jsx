@@ -6,7 +6,7 @@ import { RecipeSearch } from "../components/RecipeSearch";
 export const RecipesPage = () => {
   const [userRecipeChoice, setUserRecipeChoice] = useState("");
   return (
-    <Flex minH="100vh" w="100vw" align="center" flexDir="column" bg="blue.400">
+    <Flex minH="100vh" w="100vw" align="center" flexDir="column" bg="green.500">
       {userRecipeChoice ? (
         <RecipeChoice recipe={userRecipeChoice} onClick={setUserRecipeChoice} />
       ) : (
