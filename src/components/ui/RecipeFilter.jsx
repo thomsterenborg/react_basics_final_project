@@ -9,7 +9,7 @@ export const RecipeFilter = ({ value, onChange }) => {
     <RadioGroup
       p={4}
       bg="blue.900"
-      onChange={onChange}
+      //onChange={onChange({ value })}
       value={value}
       mb={8}
       borderRadius={15}
@@ -18,16 +18,16 @@ export const RecipeFilter = ({ value, onChange }) => {
     >
       <Stack direction={{ base: "column", md: "row" }}>
         <Text fontWeight={700}>Filter recipes:</Text>
-        <Radio bg="gray.100" value="">
+        <Radio bg="gray.100" value="" onChange={onChange}>
           All
         </Radio>
-        <Radio bg="gray.100" value="pescatarian">
+        <Radio bg="gray.100" value="pescatarian" onChange={onChange}>
           Pescatarian
         </Radio>
-        <Radio bg="gray.100" value="vegetarian">
+        <Radio bg="gray.100" value="vegetarian" onChange={onChange}>
           Vegetarian
         </Radio>
-        <Radio bg="gray.100" value="vegan">
+        <Radio bg="gray.100" value="vegan" onChange={onChange}>
           Vegan
         </Radio>
       </Stack>
