@@ -1,5 +1,15 @@
 import { ArrowLeftIcon } from "@chakra-ui/icons";
-import { Flex, Heading, IconButton, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Flex,
+  Heading,
+  Icon,
+  IconButton,
+  Image,
+  Text,
+} from "@chakra-ui/react";
+import { FaInfoCircle } from "react-icons/fa";
 import { CautionLabels } from "./CautionLabels";
 import { DietLabels } from "./DietLabels";
 import { HealthLabels } from "./HealthLabels";
@@ -20,14 +30,25 @@ export const RecipeChoice = ({ recipe, onClick }) => {
     >
       <Flex w="100%" h="60px" align="center" p={3} gap={4}>
         {/*Return button */}
-        <IconButton
-          variant={"ghost"}
-          color="blue.500"
-          icon={<ArrowLeftIcon />}
-          _hover={{ bg: "blue.500", color: "white" }}
-          _active={{ bg: "blue.300" }}
-          onClick={() => onClick()}
-        />
+        <Box>
+          <IconButton
+            variant={"ghost"}
+            color="yellow.500"
+            icon={<ArrowLeftIcon />}
+            _hover={{ bg: "yellow.500", color: "white" }}
+            _active={{ bg: "yellow.300" }}
+            onClick={() => onClick()}
+          />
+        </Box>
+        <Flex right={8} w="100%" align={"center"} justify="center">
+          <Icon
+            w={12}
+            h={12}
+            marginRight={14}
+            color="green.500"
+            as={FaInfoCircle}
+          />
+        </Flex>
       </Flex>
 
       <Image
@@ -47,7 +68,7 @@ export const RecipeChoice = ({ recipe, onClick }) => {
           pb={{ base: 0, md: 4 }}
           flexDir="column"
         >
-          <Heading as="h4" size="md">
+          <Heading as="h4" size="md" color="yellow.500">
             {recipe.label}
           </Heading>
 
