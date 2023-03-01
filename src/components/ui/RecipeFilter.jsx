@@ -8,7 +8,8 @@ export const RecipeFilter = ({ value, onChange }) => {
   return (
     <RadioGroup
       p={4}
-      bg="blue.900"
+      bg="yellow.500"
+      onChange={onChange}
       value={value}
       mb={8}
       borderRadius={15}
