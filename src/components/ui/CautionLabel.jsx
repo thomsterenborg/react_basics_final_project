@@ -6,7 +6,7 @@ import { Tag, TagLeftIcon, Tooltip } from "@chakra-ui/react";
 export const CautionLabel = ({ label }) => {
   return (
     <Tooltip
-      label={`This recipe contains \"${label}\" and may cause an allergic reaction`}
+      label={`CAUTION: This recipe contains \"${label}\" and may cause an allergic reaction`}
     >
       <Tag
         size="sm"

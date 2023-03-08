@@ -9,58 +9,41 @@ const availableRecipes = data.hits;
 
 export const RecipeSearch = ({ onClick }) => {
   //useState for search field
-  const [searchField, setSearchField] = useState("");
-
-  //event handler for search field
-  const handleChange = (event) => {
-    setSearchField(event.target.value);
-  };
+  const [search, setSearch] = useState("");
 
   //useStare for recipe Filter/Radio Buttons
-  const [filterRecipe, setFilterRecipe] = useState("");
-
-  const toast = useToast();
+  const [filter, setFilter] = useState("all");
 
   //event handler for Radio buttons
-  const handleRadioChange = (event) => {
+  const toast = useToast();
+  const handleFilter = (e) => {
     //set the useState
-    setFilterRecipe(event.target.value);
+    setFilter(e.target.value);
 
     //Show toast
-    if (event.target.value !== "") {
-      toast({
-        title: "Recipes Filtered",
-        description: `Only showing recipes with the label ${event.target.value}. This will affect your search results.`,
-        status: "info",
-        duration: 9000,
-        isClosable: true,
-        position: "top-right",
-      });
-    } else {
-      toast({
-        title: "Filter has been reset",
-        description: "Now showing all available recipes",
-        status: "info",
-        duration: 9000,
-        isClosable: true,
-        position: "top-right",
-      });
-    }
+    toast({
+      title: "Recipes filtered",
+      description: `Currently showing ${e.target.value} recipes`,
+      status: "info",
+      duration: 9000,
+      isClosable: true,
+      position: "top-right",
+    });
   };
 
   //Create array of recipes based on filter state
   const recipesForSearch = availableRecipes.filter((recipe) => {
-    if (filterRecipe === "") return recipe;
+    if (filter === "all") return recipe;
 
-    if (filterRecipe === "pescatarian") {
+    if (filter === "pescatarian") {
       return recipe.recipe.healthLabels.includes("Pescatarian");
     }
 
-    if (filterRecipe === "vegetarian") {
+    if (filter === "vegetarian") {
       return recipe.recipe.healthLabels.includes("Vegetarian");
     }
 
-    if (filterRecipe === "vegan") {
+    if (filter === "vegan") {
       return recipe.recipe.healthLabels.includes("Vegan");
     }
   });
@@ -69,13 +52,13 @@ export const RecipeSearch = ({ onClick }) => {
   const matchedRecipes = recipesForSearch.filter((recipe) => {
     return recipe.recipe.label
       .toLocaleLowerCase()
-      .includes(searchField.toLocaleLowerCase());
+      .includes(search.toLocaleLowerCase());
   });
 
   return (
     <Center flexDir="column" maxW={{ base: "100%", lg: "1400px" }}>
-      <TextInput onChange={handleChange} />
-      <RecipeFilter value={filterRecipe} onChange={handleRadioChange} />
+      <TextInput onChange={(e) => setSearch(e.target.value)} />
+      <RecipeFilter value={filter} onChange={handleFilter} />
       <RecipeCards onClick={onClick} recipes={matchedRecipes} />
     </Center>
   );

@@ -17,7 +17,7 @@ export const RecipeFilter = ({ value, onChange }) => {
     >
       <Stack direction={{ base: "column", md: "row" }}>
         <Text fontWeight={700}>Filter recipes:</Text>
-        <Radio bg="gray.100" value="" onChange={onChange}>
+        <Radio bg="gray.100" value="all" onChange={onChange}>
           All
         </Radio>
         <Radio bg="gray.100" value="pescatarian" onChange={onChange}>
