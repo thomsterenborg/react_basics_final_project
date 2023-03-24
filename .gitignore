@@ -1,2 +1,12 @@
 /.DS_Store
+.DS_Store
+dist
+**/node_modules/*
 node_modules
+.idea
+**/.firebaserc
+
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/
+firebase.json
